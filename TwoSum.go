@@ -3,19 +3,20 @@ package main
 import "fmt"
 
 func main() {
-	var arrays = []int{3, 2, 4}
-	var num = 6
+	var arrays = []int{2, 5, 5, 11}
+	var num = 10
 	twoSum(arrays, num)
 	fmt.Println(twoSum(arrays, num))
 }
 
 func twoSum(nums []int, target int) []int {
 	var result []int
+	var sum int
 	for i := 0; i < len(nums); i++ {
-		for j := 0; j < len(nums); j++ {
-			if nums[i]+nums[j] == target {
-				result = []int{j, i}
-				break
+		for j := i + 1; j < len(nums); j++ {
+			sum = nums[i] + nums[j]
+			if sum == target {
+				return []int{j, i}
 			}
 		}
 	}
